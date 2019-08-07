@@ -52,10 +52,17 @@ def support_page(request):
 def service_render(request, product_id):
     print("Product ID : " + str(product_id))
     services = Service.objects.all()
+    recommended_services = []
+    for service in services:
+        print("Service Product ID " + str(service.product.product_id) + " Product ID " + str(product_id))
+        if service.product.product_id == product_id:
+            print(str(service.product.product_id) + " " + str(product_id))
+            recommended_services.append(service)
+    print("Recommended Services " + str(recommended_services))
     user_profile_id = request.user.userprofile.custom_user_id
     print("User Profile ID : " + str(user_profile_id))
 
-    return render(request, 'shop/product/services-.html', {'services': services})
+    return render(request, 'shop/product/services-.html', {'services':recommended_services})
 
 
 def feedback_form(request):
@@ -70,3 +77,7 @@ def feedback_form(request):
         feedback_form = FeedbackForm()
     return render(request, 'shop/product/feedback.html',
                   {'feedback_form': feedback_form})
+#
+# def service_purchased(request):
+#
+#     return render(request, '')
