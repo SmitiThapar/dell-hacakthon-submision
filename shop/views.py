@@ -48,7 +48,9 @@ def support_page(request):
     return render(request, 'shop/product/support.html', {'supports': supports})
 
 
-def service_render(request):
+# todo
+def service_render(request, product_id):
+    print("Product ID : " + str(product_id))
     services = Service.objects.all()
     user_profile_id = request.user.userprofile.custom_user_id
     print("User Profile ID : " + str(user_profile_id))

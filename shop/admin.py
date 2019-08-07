@@ -24,6 +24,7 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Support)
 class SupportAdmin(admin.ModelAdmin):
     list_display = ['name']
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Product)
