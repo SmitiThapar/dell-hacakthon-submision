@@ -62,7 +62,7 @@ def service_render(request, product_id):
     user_profile_id = request.user.userprofile.custom_user_id
     print("User Profile ID : " + str(user_profile_id))
 
-    return render(request, 'shop/product/services-.html', {'services':recommended_services})
+    return render(request, 'shop/product/services-.html', {'services': recommended_services})
 
 
 def feedback_form(request):
@@ -77,7 +77,7 @@ def feedback_form(request):
         feedback_form = FeedbackForm()
     return render(request, 'shop/product/feedback.html',
                   {'feedback_form': feedback_form})
-#
-# def service_purchased(request):
-#
-#     return render(request, '')
+
+
+def service_purchased(request):
+    return render(request, 'shop/product/service_purchased.html', {})
