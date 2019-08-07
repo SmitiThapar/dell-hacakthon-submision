@@ -50,6 +50,8 @@ def support_page(request):
 
 def service_render(request):
     services = Service.objects.all()
+    user_profile_id = request.user.userprofile.custom_user_id
+    print("User Profile ID : " + str(user_profile_id))
 
     return render(request, 'shop/product/services-.html', {'services': services})
 
